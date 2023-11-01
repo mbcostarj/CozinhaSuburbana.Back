@@ -1,3 +1,6 @@
+using CozinhaSuburbana.Domain.Extension;
+using CozinhaSuburbana.Infrastructure.Migrations;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,4 +25,13 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+atualizarBaseDeDados();
+
 app.Run();
+
+void atualizarBaseDeDados() {
+    var conexao = builder.Configuration.GetConnectionString();
+    var nomeDatabase = builder.Configuration.GetNomeDatabase();
+
+    Database.CriarDatabase(conexao, nomeDatabase);
+}
