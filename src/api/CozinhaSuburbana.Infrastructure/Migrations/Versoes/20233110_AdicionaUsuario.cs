@@ -15,9 +15,9 @@ public class AdicionaUsuario : Migration
         var tabela = VersaoBase.InserirColunasPadrao(Create.Table("Usuario"));
 
         tabela
+            .WithColumn("Nome").AsString(100).NotNullable()
             .WithColumn("Email").AsString(300).NotNullable()
             .WithColumn("Telefone").AsString(14).NotNullable()
-            .WithColumn("Senha").AsString(2000).NotNullable()
-            .WithColumn("DataCriacao").AsDateTime().NotNullable();
+            .WithColumn("Senha").AsString(2000).NotNullable();
     }
 }

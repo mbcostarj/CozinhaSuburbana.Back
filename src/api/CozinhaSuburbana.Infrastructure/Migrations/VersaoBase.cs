@@ -6,7 +6,7 @@ namespace CozinhaSuburbana.Infrastructure.Migrations
     {
         public static ICreateTableColumnOptionOrWithColumnSyntax InserirColunasPadrao(ICreateTableWithColumnOrSchemaOrDescriptionSyntax tabela) {
             return tabela.WithColumn("id").AsInt64().PrimaryKey().Identity()
-                .WithColumn("Nome").AsString(100).NotNullable();
+                .WithColumn("DataCriacao").AsDateTime().NotNullable();
         }
     }
 }
